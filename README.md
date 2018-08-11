@@ -76,3 +76,6 @@ return JsonResponse(data)
 Now open the localhost with ?ip_address=123 at last of our view url
 
 http://127.0.0.1:8000/get-weather-from-ip/?ip_address=123
+
+the request object fetches the ip_address we passed in the url and prints it in the terminal and also
+returns a JsonResponse of our data
