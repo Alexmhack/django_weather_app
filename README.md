@@ -13,6 +13,10 @@ Note the dot after the name of the project.
 
 Create two folders > templates and static in the main folder like the tree below
 
+Create a .env file in the project root folder and place our SECRET_KEY from weather/settings.py in 
+there and use the os.environ.get("SECRET_KEY") to get the secret key, environ fetches the value of 
+this variable from .env file, .env tells our computer that this is ENV or system file, make sure 
+that no space is there around the = sign in the .env file while declaring values
 
 	...
 -	manage.py 
