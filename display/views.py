@@ -6,6 +6,6 @@ def home(request):
 
 
 def get_weather_ip(request):
-	print(request.GET.get("ip_address"))
+	print("IP ADDRESS: " + request.GET.get("ip_address"))
 	data = {'weather_data': 20}
 	return JsonResponse(data)
