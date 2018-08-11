@@ -97,6 +97,6 @@ We are going to call ajax from our previous get_ip function and use $.ajax metho
 base.html we have made a request to the url for our get_weather_ip function and sending data to the 
 request object using the data: {'weather_data': 20}, we need to tell ajax what is the type of data
 we are sending which is ofcourse json data here and in the last we use the success attribute that 
-takes a function which is called immediately when the ajax request is successful, we pass in the data 
-as the argument and the view that we called from our url 'get_weather_ip' that returns the 
+takes a function which is called immediately when the ajax request is successful, we pass in the 
+data as the argument and the view that we called from our url 'get_weather_ip' that returns the 
 JsonResponse and we display that response which is '20' in our para with id 'weatherdata'
