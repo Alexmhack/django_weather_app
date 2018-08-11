@@ -11,7 +11,14 @@
 
     <script>
     	function get_ip(json) {
-    		alert("Your IP Address is: " + json.ip);
+    		$.ajax({
+                url: {% 'get_weather_ip' %},
+                data: {'ip': json.ip},
+                dataType: 'json',
+                success: function(data) {
+                    $("#weatherdata").html(data.weather_data)
+                }
+            })
     	}
     </script>
 
