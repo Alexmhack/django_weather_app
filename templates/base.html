@@ -9,9 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
     <script>
-    	function get_ip(json) {
-    		$.ajax({
+        function get_ip(json) {
+            $.ajax({
                 url: {% url 'get_weather_ip' %},
                 data: {'ip': json.ip},
                 dataType: 'json',
@@ -19,14 +23,10 @@
                     $("#weatherdata").html(data.weather_data)
                 }
             })
-    	}
+        }
     </script>
 
-	<script src="https://api.ipify.org?format=jsonp&callback=get_ip"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    <script src="https://api.ipify.org?format=jsonp&callback=get_ip"></script>
 </head>
 <body>
     {% block content %}
