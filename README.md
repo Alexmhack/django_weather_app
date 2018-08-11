@@ -22,4 +22,7 @@ Just place this script in the head of our base.html file
 	}	
 </script>
 
-<script src="https://api.ipify.org?format=jsonp&callback=use_ip"></script>
+<script src="https://api.ipify.org?format=jsonp&callback=get_ip"></script>
+
+NOTE: the function name and our callback from the ipify url are the same, this connects our function
+with the json the api will send on request.
