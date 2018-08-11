@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+
 import requests
+import os
 
 def home(request):
 	return render(request, "display/index.html")
@@ -26,3 +28,10 @@ def get_weather_ip(request):
 		return JsonResponse(data)
 	else:
 		return JsonResponse(f"Failed To get location for ip_address: {ip_address}")
+
+
+def get_weather_from_location(city, country_code):
+	token = os.environ.get("OPEN_WEATHER_TOKEN")
+	url = f"https://api.openweathermap.org/data/2.5/weather?q={city},{country_code}&units=metric&appid={token}"
+	response = requests.get(url)
+	return response.json()
