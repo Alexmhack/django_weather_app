@@ -18,8 +18,11 @@ def get_weather_ip(request):
 	ip_address = request.GET.get("ip_address")
 	print(ip_address)
 	location = get_location_from_ip(ip_address)
-	city = location.get("city")
-	country_code = location.get("countryCode")
-	details = "So you are in {}, {}".format(city, country_code)
-	data = {'weather_data': details}
-	return JsonResponse(data)
+	if location.status == "success":
+		city = location.get("city")
+		country_code = location.get("countryCode")
+		details = "So you are in {}, {}".format(city, country_code)
+		data = {'weather_data': details}
+		return JsonResponse(data)
+	else:
+		return JsonResponse(f"Failed To get location for ip_address: {ip_address}")
