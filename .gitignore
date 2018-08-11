@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# migrations folder for display app
+display/migrations
+
+# secret key
+secret_key
