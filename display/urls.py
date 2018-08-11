@@ -7,5 +7,5 @@ from .views import (
 
 urlpatterns = [
 	path('', home, name='home'),
-	paht('get-weather-from-ip/', get_weather_ip, name='get_weather_ip'),
+	path('get-weather-from-ip/', get_weather_ip, name='get_weather_ip'),
 ]
