@@ -15,6 +15,11 @@ def get_location_from_ip(ip_address):
 
 
 def get_weather_ip(request):
-	print("IP ADDRESS: " + request.GET.get("ip_address"))
-	data = {'weather_data': 20}
+	ip_address = request.GET.get("ip_address")
+	print(ip_address)
+	location = get_location_from_ip(ip_address)
+	city = location.get("city")
+	country_code = location.get("countryCode")
+	details = "So you are in {}, {}".format(city, country_code)
+	data = {'weather_data': details}
 	return JsonResponse(data)
