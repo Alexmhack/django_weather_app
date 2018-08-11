@@ -43,3 +43,36 @@ with the json the api will send on request.
 
 Run the first migrate and createsuperuser.
 
+# Django App
+Create a new django app display for displaying the current location weather for a particular user
+by fetching his ip address, but first we need to make a fake data repsonder for starters.
+
+Create a new view function named get_weather_ip
+
+NOTE: Django by default sends a request object with every request made to a view from its url, so 
+here we are going to use that request object to get the ip_address from the request, this ip_address 
+is the one that the ipify api is sending us as json,
+
+```
+request.GET.get("ip_address")
+```
+
+We will print this ip_address from our view function into the terminal and just create a fake json
+data using python dict
+
+```
+data = {'weather_data': 20}
+```
+
+this fake data says the current temperature is 20 degree Celcius
+
+Next we need to send this data again so we will use the JsonResponse from django.http and return this
+response from our view
+
+```
+return JsonResponse(data)
+```
+
+Now open the localhost with ?ip_address=123 at last of our view url
+
+http://127.0.0.1:8000/get-weather-from-ip/?ip_address=123
