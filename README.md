@@ -79,3 +79,9 @@ http://127.0.0.1:8000/get-weather-from-ip/?ip_address=123
 
 the request object fetches the ip_address we passed in the url and prints it in the terminal and also
 returns a JsonResponse of our data
+
+# Steps Remaining
+1. pass the user's real ip to url in background when user visits the main page
+2. add more logic for fetching the user's real location from the ip
+3. add logic for getting user's weather from their location
+4. display this data to user
