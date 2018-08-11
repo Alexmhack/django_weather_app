@@ -8,10 +8,18 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <script>
+    	function get_ip(json) {
+    		alert("Your IP Address is: " + json.ip);
+    	}
+    </script>
+
+	<script src="https://api.ipify.org?format=jsonp&callback=get_ip"></script>
 </head>
 <body>
     {% block content %}
-    	
+
     {% endblock content %}
 </body>
 </html>
