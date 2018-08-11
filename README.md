@@ -85,3 +85,6 @@ returns a JsonResponse of our data
 2. add more logic for fetching the user's real location from the ip
 3. add logic for getting user's weather from their location
 4. display this data to user
+
+We will be using AJAX through Jquery to do a partial page refresh and for that we need to include 
+jQuery as a library which we did in base.html using script tags
