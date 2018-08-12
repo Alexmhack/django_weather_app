@@ -34,6 +34,12 @@ def get_weather_ip(request):
 		country_code = location.get("countryCode")
 		print(city, country_code)
 		weather_data = get_weather_from_location(city, country_code)
+
+		if weather_data['message'] == 'city not found':
+			details = f"Failed to get weather details for your location - {city}, {country_code}"
+			data = {'weather_data': details}
+			return JsonResponse(data)
+
 		print(weather_data)
 		description = weather_data['weather'][0]['description']
 		temperature = weather_data['main']['temp']
@@ -41,6 +47,6 @@ def get_weather_ip(request):
 		data = {'weather_data': details}
 		return JsonResponse(data)
 	else:
-		details = f"Failed to get weather details for your location - {city}, {country_code}"
+		details = f"Failed to get your location IP: {ip_address}"
 		data = {'weather_data': details}
 		return JsonResponse(data)
