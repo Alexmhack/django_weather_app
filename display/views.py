@@ -32,12 +32,15 @@ def get_weather_ip(request):
 	if location['status'] == "success":
 		city = location.get("city")
 		country_code = location.get("countryCode")
+		print(city, country_code)
 		weather_data = get_weather_from_location(city, country_code)
 		print(weather_data)
 		description = weather_data['weather'][0]['description']
 		temperature = weather_data['main']['temp']
-		details = f"So you are in {city}, {country_code}. You can expect {description} with a temperature of {temperature} degres"
+		details = f"So you are in {city}, {country_code}. You can expect {description} with a temperature of {temperature} degrees"
 		data = {'weather_data': details}
 		return JsonResponse(data)
 	else:
-		return JsonResponse(f"Failed To get location for ip_address: {ip_address}")
+		details = f"Failed to get weather details for your location - {city}, {country_code}"
+		data = {'weather_data': details}
+		return JsonResponse(data)
